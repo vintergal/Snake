@@ -1,0 +1,27 @@
+[33mcommit 3552d979daf3893645539c82b00aab250ce143a6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: gal vinter <vintergal@gmail.com>
+Date:   Wed Dec 29 01:34:29 2021 +0200
+
+    - modeled SnakeNodes,
+    
+    -put common imports and constant into one model,
+    
+    - added method for adding noed to snake and function to init it
+    
+    TODO:
+    
+    -doing movement exery X second and not by pressing,
+    
+    -move all the nodes on one movement
+
+[33mcommit 0d745d08596a770cddadfae254554c1d1ce8a341[m
+Author: gal vinter <vintergal@gmail.com>
+Date:   Mon Dec 20 18:56:02 2021 +0200
+
+    added constant, circle that move with the keybord arrow
+
+[33mcommit 5c6cf7302c98655cdc55db4a1e42c6e0852011b8[m
+Author: gal vinter <vintergal@gmail.com>
+Date:   Mon Dec 20 12:17:03 2021 +0200
+
+    created game board and sanake's head
