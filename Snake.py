@@ -3,11 +3,8 @@ from ConstantAndImports import *
 
 
 class SnakeNode:
-
-    next = None
-    node_graphic = None
-    canvas = None
-    index=-1
+    # static variable
+    direction = ARROW_UP_CODE
 
     def __init__(self, pos_x, pos_y, canvas, is_head:bool = False):
         self.next=None
@@ -16,16 +13,28 @@ class SnakeNode:
 
     def add_node(self, pos_x=-1, pos_y=-1):
         if self.next is None:
-            coords=self.canvas.coords(self.node_graphic)
             if pos_x == -1:
-                pos_x=int(coords[0])
+                pos_x=self.pos_x
             if pos_y == -1:
-                pos_y = int(coords[1]) + STEP
+                pos_y = self.pos_y + STEP
             self.next=SnakeNode(pos_x=pos_x, pos_y=pos_y, canvas=self.canvas)
         else:
             self.next.add_node(pos_x=pos_x, pos_y=pos_y)
 
+    def move(self, rel_pos_x=0,rel_pos_y=0):
+        current_pos_x=self.pos_x
+        current_pos_y=self.pos_y
+        self.canvas.move(self.node_graphic, rel_pos_x, rel_pos_y)
+        if self.next is not None:
+            self.next.move(current_pos_x-self.next.pos_x, current_pos_y-self.next.pos_y)
 
+    @property
+    def pos_x(self):
+        return self.canvas.coords(self.node_graphic)[0]
+
+    @property
+    def pos_y(self):
+        return self.canvas.coords(self.node_graphic)[1]
 
     @staticmethod
     def initSnake(head, nodes_after_head: int = 5):
