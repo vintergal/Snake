@@ -1,5 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
+import threading
+import time
+
+from queue import Queue
 
 
 SNAKE_HEAD_INITIAL_POS_X=250
@@ -8,9 +12,9 @@ SNAKE_BODY_PART_R=10
 STEP=10
 
 Board_START_X=0
-Board_START_Y=0
-Board_END_X=500
-Board_END_Y=500
+Board_START_Y=100
+Board_WIDTH=500
+BOARD_HEIGHT=500
 
 ARROW_RIGHT_CODE=39
 ARROW_LEFT_CODE=37

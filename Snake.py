@@ -4,10 +4,10 @@ from ConstantAndImports import *
 
 class SnakeNode:
     # static variable
-    direction = ARROW_UP_CODE
 
-    def __init__(self, pos_x, pos_y, canvas, is_head:bool = False):
+    def __init__(self, pos_x, pos_y, canvas:tk.Canvas, is_head:bool = False):
         self.next=None
+        self.direction = ARROW_UP_CODE
         self.canvas=canvas
         self.node_graphic=canvas.create_oval(pos_x, pos_y, pos_x+SNAKE_BODY_PART_R, pos_y+SNAKE_BODY_PART_R, fill="red"if is_head else "white")
 
@@ -27,6 +27,9 @@ class SnakeNode:
         self.canvas.move(self.node_graphic, rel_pos_x, rel_pos_y)
         if self.next is not None:
             self.next.move(current_pos_x-self.next.pos_x, current_pos_y-self.next.pos_y)
+
+
+
 
     @property
     def pos_x(self):
